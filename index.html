@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Support Our Community Crosswalk Advocate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #0052cc;
+      --primary-dark: #003fa3;
+      --primary-light: #1f77ff;
+      --accent: #ff5a3d;
+      --accent-light: #ff8a6b;
+      --success: #00b857;
+      --bg-dark: #0f1419;
+      --bg-light: #f8fafb;
+      --text-primary: #0f1419;
+      --text-secondary: #5a6673;
+      --border: #e4e8f0;
+      --gradient-1: linear-gradient(135deg, #0052cc 0%, #1f77ff 100%);
+      --gradient-2: linear-gradient(135deg, #ff5a3d 0%, #ff8a6b 100%);
+      --gradient-bg: linear-gradient(180deg, rgba(0,82,204,0.05) 0%, rgba(255,90,61,0.02) 100%);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-light);
+      color: var(--text-primary);
+      line-height: 1.65;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, rgba(0,82,204,0.98) 0%, rgba(31,119,255,0.98) 100%);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,82,204,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      animation: slideInDown 0.6s ease-out;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      opacity: 0.95;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-left: auto;
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .tagline {
+        display: block;
+      }
+    }
+
+    .btn-header {
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-header:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+
+    @media (max-width: 1000px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .hero-text h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-text > p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.4rem;
+      line-height: 1.7;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(135deg, rgba(0,82,204,0.08) 0%, rgba(255,90,61,0.05) 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.2rem 1.3rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .hero-highlight:hover {
+      transform: translateX(4px);
+      border-left-width: 5px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .badge:hover {
+      background: var(--bg-light);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--gradient-1);
+      color: #fff;
+      padding: 1rem 1.8rem;
+      border-radius: 10px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0,82,204,0.35);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shimmer 3s infinite;
+    }
+
+    .btn-primary > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(0,82,204,0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      padding: 0.95rem 1.6rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(0,82,204,0.06);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* ===== VIDEO CARD ===== */
+    .video-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+      animation: slideInUp 0.8s ease-out 0.3s both;
+      transition: all 0.3s ease;
+    }
+
+    .video-card:hover {
+      box-shadow: 0 24px 64px rgba(0,82,204,0.12);
+      transform: translateY(-4px);
+    }
+
+    .video-wrapper {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .video-caption {
+      padding: 1.2rem 1.5rem;
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      background: rgba(248,250,251,0.5);
+      line-height: 1.6;
+    }
+
+    /* ===== PAYMENT CARD ===== */
+    .payment-section {
+      margin-top: 1.5rem;
+      padding: 1.8rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,82,204,0.05) 0%, rgba(255,90,61,0.03) 100%);
+      border: 1.5px solid var(--border);
+      animation: slideInUp 0.8s ease-out 0.4s both;
+    }
+
+    .payment-section h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .payment-section p {
+      margin-bottom: 1.2rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      animation: slideInUp 0.8s ease-out both;
+    }
+
+    .section:nth-of-type(1) { animation-delay: 0.2s; }
+    .section:nth-of-type(2) { animation-delay: 0.3s; }
+    .section:nth-of-type(3) { animation-delay: 0.4s; }
+    .section:nth-of-type(4) { animation-delay: 0.5s; }
+    .section:nth-of-type(5) { animation-delay: 0.6s; }
+
+    .section h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .section h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ===== TWO COLUMN LAYOUT ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== LISTS ===== */
+    .list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .list li {
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      transition: all 0.3s ease;
+    }
+
+    .list li:hover {
+      color: var(--text-primary);
+      padding-left: 2.2rem;
+    }
+
+    .list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0.3rem;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .list strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* ===== PILLS ===== */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .pill {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,82,204,0.08) 0%, rgba(255,90,61,0.06) 100%);
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+    }
+
+    .pill:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255,90,61,0.08) 0%, rgba(0,82,204,0.05) 100%);
+      border-left: 4px solid var(--accent);
+      padding: 1.3rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .highlight-box strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* ===== IMAGE GALLERY ===== */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .image-grid figure {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      background: #f0f0f0;
+    }
+
+    .image-grid figure:hover {
+      box-shadow: 0 16px 40px rgba(0,82,204,0.15);
+      transform: translateY(-6px);
+    }
+
+    .image-grid img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .image-grid figure:hover img {
+      transform: scale(1.08);
+    }
+
+    .image-grid figcaption {
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      background: #fff;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== FORM STYLES ===== */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 0.9rem 1.1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      background: #fff;
+      transition: all 0.3s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0,82,204,0.1);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .note-small {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(180deg, rgba(15,20,25,0.95) 0%, rgba(0,0,0,0.98) 100%);
+      color: rgba(255,255,255,0.8);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 4rem;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.9);
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      main {
+        padding: 2rem 1rem;
+      }
+
+      .hero {
+        margin-bottom: 3rem;
+      }
+
+      .section {
+        padding: 1.8rem 1.2rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .section h2 {
+        font-size: 1.3rem;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+      }
+
+      header {
+        padding: 1rem;
+      }
+
+      .header-inner {
+        gap: 1rem;
+      }
+
+      .brand {
+        font-size: 1.2rem;
+      }
+
+      .tagline {
+        display: none !important;
+      }
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-3 { margin-top: 1rem; }
+    .mt-4 { margin-top: 1.5rem; }
+
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 1rem; }
+    .mb-4 { margin-bottom: 1.5rem; }
+
+    /* ===== SCROLLBAR STYLING ===== */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-light);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon">🚸</span>
+        Safe Streets
+      </div>
+      <span class="tagline">Community Safety Initiative</span>
+      <button class="btn-header" onclick="document.getElementById('support-form').scrollIntoView({behavior: 'smooth'})">
+        Get Involved
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Every Child Deserves Safe Passage</h1>
+        <p>
+          A community-driven movement to protect vulnerable pedestrians at dangerous crossings and demand the safe infrastructure our children deserve.
+        </p>
+
+        <div class="hero-highlight">
+          ⚠️ <strong>This is about real lives.</strong> When city agencies fail to act, community members step up. Jonathan did. Now we're mobilizing to support safer streets for everyone.
+        </div>
+
+        <div class="hero-badges">
+          <span class="badge">Protected Crosswalks</span>
+          <span class="badge">Child Pedestrian Advocacy</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-primary" onclick="document.getElementById('support-form').scrollIntoView({behavior: 'smooth'})">
+            💝 Donate or Pledge Support
+          </button>
+          <button class="btn-ghost" onclick="document.getElementById('learn-more').scrollIntoView({behavior: 'smooth'})">
+            📖 Learn More
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <strong>✓ Community-led</strong> efforts focused on safer streets, visibility, and advocacy.<br />
+          <strong>✓ Direct impact</strong> — contributions help amplify this issue and protect residents, especially children, at dangerous crossings.
+        </div>
+      </div>
+
+      <!-- VIDEO CARD -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video id="mainVideo" src="videoplayback.mp4" controls playsinline>
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-caption">
+          Watch this footage to understand why the community is rallying behind this cause and why safe crosswalks are essential to our children's future.
+        </div>
+      </div>
+    </section>
+
+    <!-- PAYMENT SECTION -->
+    <section class="payment-section">
+      <h3>💰 Make a Direct Contribution</h3>
+      <p>
+        Support the <strong>Community Safety & Crosswalk Improvement Fund</strong> with a <strong>$19.99 contribution</strong> to help fund awareness campaigns, community-led advocacy, and legal support for neighbors who protect our children at dangerous intersections.
+      </p>
+      <a
+        href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-832272e1b2bd40b6a7cb2594427c8bd9d484d8182ce94c2c8ca6e237de02217d8513ec1899df49b6ae556e16a9a2b40b?locale=EN_US"
+        target="_blank"
+        style="
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          background: linear-gradient(135deg, #ff5a3d, #ff8a6b);
+          color: #fff;
+          padding: 1rem 1.8rem;
+          border-radius: 10px;
+          font-weight: 600;
+          text-align: center;
+          box-shadow: 0 12px 24px rgba(255,90,61,0.3);
+          transition: all 0.3s ease;
+          border: none;
+          text-decoration: none;
+        "
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 16px 32px rgba(255,90,61,0.4)'"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 24px rgba(255,90,61,0.3)'"
+      >
+        ✓ Contribute $19.99
+      </a>
+    </section>
+
+    <!-- WHY THIS MATTERS -->
+    <section id="learn-more" class="section">
+      <div class="two-col">
+        <div>
+          <h2>Why He Took Action</h2>
+          <p>
+            Westwood has seen a rising number of serious pedestrian injuries and tragic child fatalities at poorly marked or unsafe intersections. Parents pushing strollers, students walking home, and seniors crossing the street have all been put at risk by fast-moving traffic and inadequate crosswalk visibility.
+          </p>
+          <p>
+            After repeated community requests for safer crossings and traffic-calming measures went unanswered, Jonathan stepped in where infrastructure failed — painting temporary crosswalks to slow cars down and protect families on their daily routes.
+          </p>
+
+          <ul class="list">
+            <li>Several children in Westwood have been struck while crossing busy streets.</li>
+            <li>Community calls for permanent safety improvements were delayed or ignored.</li>
+            <li>Parents, students, and elders still face dangerous, poorly marked intersections every day.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>How Your Support Helps</h2>
+          <p><strong>Your contribution can help:</strong></p>
+          <ul class="list">
+            <li><strong>Fund awareness campaigns</strong> that highlight unsafe intersections and share real stories from residents.</li>
+            <li><strong>Support legal and community advocacy</strong> so neighbors aren't punished for trying to protect children.</li>
+            <li><strong>Push for permanent, city-approved crosswalks</strong> and sidewalk improvements in high-risk areas.</li>
+            <li><strong>Protect children walking to school</strong> every day with safer, more visible crossings.</li>
+          </ul>
+
+          <div class="pill-row">
+            <span class="pill">Every amount counts</span>
+            <span class="pill">Safer streets for kids</span>
+            <span class="pill">Share this mission</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="section">
+      <h2>A Call to Action — We Need You</h2>
+      <p>
+        This movement isn't about one person — it's about all of us demanding safer streets, better visibility, slower traffic, and proper pedestrian infrastructure. Whether you give financially or simply help spread the word, you are part of preventing the next tragedy.
+      </p>
+
+      <div class="two-col">
+        <div>
+          <ul class="list">
+            <li>
+              <strong>Donate Today:</strong> Click the <em>"Contribute $19.99"</em> button to make a secure payment through Intuit and support crosswalk safety, advocacy, and community organizing.
+            </li>
+            <li>
+              <strong>Stay Connected:</strong> Use the form below if you'd like updates, to offer professional support, or to share words of encouragement for Jonathan and the community.
+            </li>
+            <li>
+              <strong>Share the Story:</strong> Post this page, the video, and photos in your group chats, social media, and neighborhood circles.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="highlight-box">
+            <strong>ℹ️ How it Works:</strong> The payment button securely processes contributions through Intuit. The form below is for contact, pledges, or additional support — it does not process payments directly.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE GALLERY -->
+    <section class="section">
+      <h2>Scenes From Our Streets</h2>
+      <p>
+        These images show the kinds of intersections families, students, and everyday neighbors navigate daily — and why protected, well-marked crosswalks are essential, not optional.
+      </p>
+      <div class="image-grid">
+        <figure>
+          <img src="crosswalk1.jpg" alt="A parent pushing a stroller near a painted crosswalk at a residential intersection." />
+          <figcaption>Parents, children, and pets sharing the streets near marked crossings that still need better protection.</figcaption>
+        </figure>
+        <figure>
+          <img src="crosswalk2.jpg" alt="Workers in safety vests repainting and upgrading a crosswalk at a busy intersection." />
+          <figcaption>Community and city crews improving visibility at a busy intersection — the kind of change we're fighting for.</figcaption>
+        </figure>
+        <figure>
+          <img src="crosswalk3.jpg" alt="Two pedestrians walking across a freshly painted crosswalk in a neighborhood street." />
+          <figcaption>Freshly painted crosswalks remind drivers to slow down and watch for people, not just cars.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SUPPORT FORM -->
+    <section id="support-form" class="section">
+      <h2>Community Safety & Support Form</h2>
+      <p>
+        Complete the form below to pledge a contribution, offer professional services, or share a message of support for Jonathan and for safer crosswalks in Westwood. Your submission will be sent directly to our organizing team.
+      </p>
+
+      <div class="highlight-box mb-4">
+        <strong>💡 Custom Contributions:</strong> Interested in contributing more than the standard amount? Fill out the form below and include your desired amount. Our team will send a secure payment link directly to your email. Thank you for supporting safer crosswalks!
+      </div>
+
+      <form action="https://formsubmit.co/coreversallc@gmail.com" method="POST" id="supportForm">
+        <div class="form-grid">
+          <div>
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div>
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div>
+            <label for="phone">Phone (Optional)</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+
+          <div>
+            <label for="city">City / Neighborhood</label>
+            <input type="text" id="city" name="city" />
+          </div>
+
+          <div>
+            <label for="support_type">I Would Like To *</label>
+            <select id="support_type" name="support_type" required>
+              <option value="">Select an option</option>
+              <option value="financial">Share that I contributed financially</option>
+              <option value="legal">Offer legal or professional support</option>
+              <option value="organizing">Help with outreach / organizing</option>
+              <option value="message">Send a message of encouragement</option>
+              <option value="other">Other / Not sure yet</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="amount">Estimated Contribution Amount (If Applicable)</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0" placeholder="e.g. 50.00" />
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message or Additional Details</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Let us know anything we should be aware of (e.g., your availability, professional background, or words of encouragement)."
+          ></textarea>
+        </div>
+
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="🚸 New Community Safety Support Submission" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="submitBtn">
+            ✓ Submit My Information
+          </button>
+          <div class="note-small" id="formStatus">
+            Your submission will be sent directly to <strong>coreversallc@gmail.com</strong>. We'll reach out soon with updates and opportunities to get involved.
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <strong>Community Safety Spotlight</strong> — A grassroots movement for safer streets<br />
+      Supporting Jonathan and families who stand up for protected crosswalks<br />
+      <span style="opacity: 0.6;">Built by and for our community. Every voice matters. 🚸</span>
+    </p>
+  </footer>
+
+  <script>
+    // Simple video volume setup
+    const video = document.getElementById('mainVideo');
+    if (video) {
+      video.volume = 1.0; // Full volume
+    }
+
+    // Smooth scroll enhancement
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll animation trigger for sections
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section, .video-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Form submission handler with FormSubmit.co
+    const supportForm = document.getElementById('supportForm');
+    if (supportForm) {
+      supportForm.addEventListener('submit', function(e) {
+        const submitBtn = document.getElementById('submitBtn');
+        const originalText = submitBtn.textContent;
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = '⏳ Submitting...';
+      });
+    }
+  </script>
+</body>
+</html>
