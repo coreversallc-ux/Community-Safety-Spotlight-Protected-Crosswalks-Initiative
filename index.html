@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Support Our Community Crosswalk Advocate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #0b63ce;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0b63ce, #1f96ff);
+      color: #fff;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .btn-header {
+      background: #fff;
+      color: #0b63ce;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .btn-header:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-text p {
+      opacity: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .hero-highlight {
+      background: rgba(11, 99, 206, 0.06);
+      border-left: 4px solid #0b63ce;
+      padding: 0.9rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #fff;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #0b63ce;
+      color: #fff;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(11,99,206,0.35);
+      margin-right: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.15);
+      padding: 0.8rem 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(0,0,0,0.04);
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.8rem;
+    }
+
+    .video-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-caption {
+      padding: 0.9rem 1.1rem 1rem 1.1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      color: #444;
+    }
+
+    .section {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section p {
+      margin-bottom: 0.6rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    .list li {
+      padding-left: 1.3rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #0b63ce;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: #f3f6ff;
+      border: 1px solid rgba(11,99,206,0.1);
+      color: #0b63ce;
+    }
+
+    .highlight-box {
+      background: #f9fafc;
+      border-radius: 0.9rem;
+      padding: 0.8rem 0.9rem;
+      border: 1px dashed rgba(0,0,0,0.12);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(0,0,0,0.18);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      background: #fff;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #0b63ce;
+      box-shadow: 0 0 0 2px rgba(11,99,206,0.15);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .note-small {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 1.5rem 1rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #777;
+      background: #f0f2f7;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .image-grid figure {
+      margin: 0;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: #f3f6ff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .image-grid figcaption {
+      padding: 0.55rem 0.7rem 0.65rem;
+      font-size: 0.8rem;
+      color: #444;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <div class="brand">COMMUNITY CROSSWALK DEFENSE FUND</div>
+        <div class="tagline">Standing with neighbors who stand up for us.</div>
+      </div>
+      <button class="btn-header" onclick="document.getElementById('support-form').scrollIntoView({behavior: 'smooth'})">
+        Make a Pledge
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO + VIDEO + PAYMENT -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Community Safety Spotlight: Jonathan Hale’s Mission for Protected Crosswalks</h1>
+        <p>
+          A local citizen in Westwood, Jonathan Hale, took action on December 9, 2025, after repeated crashes and
+          heartbreaking child fatalities at unsafe intersections. When the city failed to act quickly enough,
+          Jonathan began painting temporary crosswalks in high‑risk areas to slow traffic and protect families.
+        </p>
+
+        <div class="hero-highlight">
+          His goal wasn’t to break the law — it was to save lives.<br /><br />
+          This Community Safety Spotlight is about neighbors standing together so no parent has to fear that a child
+          won’t make it safely across the street.
+        </div>
+
+        <div class="hero-badges">
+          <span class="badge">Community Safety</span>
+          <span class="badge">Protected Crosswalks</span>
+          <span class="badge">Child Pedestrian Advocacy</span>
+        </div>
+
+        <button class="btn-primary" onclick="document.getElementById('support-form').scrollIntoView({behavior: 'smooth'})">
+          Donate or Pledge Support
+        </button>
+        <button class="btn-ghost" onclick="document.getElementById('learn-more').scrollIntoView({behavior: 'smooth'})">
+          Learn More About the Mission
+        </button>
+
+        <div class="hero-meta">
+          • This is a community-led effort focused on safer streets, visibility, and advocacy.<br />
+          • Contributions help amplify this issue and protect residents — especially children — at dangerous crossings.
+        </div>
+      </div>
+
+      <div>
+
+        <!-- VIDEO CARD -->
+        <div class="video-card">
+          <div class="video-wrapper" style="padding-top: 0;">
+            <video src="videoplayback.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              style="width: 100%; height: auto; display: block;"
+             controls></video>
+          </div>
+          <div class="video-caption">
+            Watch the footage above to understand why the community is rallying behind him and why safe crosswalks matter.
+          </div>
+        </div>
+
+        <!-- PAYMENT CARD -->
+
+        <div class="section" style="margin-top: 1.5rem; padding: 1.25rem; border-radius: 1rem;">
+          <h3 style="margin-bottom: 0.6rem; font-size: 1.1rem;">Make a Direct Contribution</h3>
+          <p style="margin-bottom: 0.9rem; font-size: 0.95rem;">
+            Support the <strong>Community Safety & Crosswalk Improvement Fund</strong> with a <strong>$19.99 contribution</strong>
+            to help fund awareness campaigns, community-led advocacy, and, where needed, legal support for neighbors who step up
+            to protect our children at dangerous intersections.
+          </p>
+
+          <a
+            href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-832272e1b2bd40b6a7cb2594427c8bd9d484d8182ce94c2c8ca6e237de02217d8513ec1899df49b6ae556e16a9a2b40b?locale=EN_US"
+            target="_blank"
+            style="
+              display: inline-block;
+              background: #0b63ce;
+              color: #fff;
+              padding: 0.8rem 1.4rem;
+              border-radius: 999px;
+              font-weight: 600;
+              text-align: center;
+              box-shadow: 0 8px 18px rgba(11,99,206,0.25);
+            "
+          >
+            Contribute $19.99
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY THIS MATTERS -->
+    <section id="learn-more" class="section">
+      <div class="two-col">
+        <div>
+          <h2>Why He Took Action</h2>
+          <p>
+            Westwood has seen a rising number of serious pedestrian injuries and tragic child fatalities at
+            poorly marked or unsafe intersections. Parents pushing strollers, students walking home, and
+            seniors crossing the street have all been put at risk by fast-moving traffic and inadequate
+            crosswalk visibility.
+          </p>
+          <p>
+            After repeated community requests for safer crossings and traffic‑calming measures went unanswered,
+            Jonathan stepped in where infrastructure failed — painting temporary crosswalks to slow cars down
+            and protect families on their daily routes.
+          </p>
+
+          <ul class="list">
+            <li>Several children in Westwood have been struck while crossing busy streets.</li>
+            <li>Community calls for permanent safety improvements were delayed or ignored.</li>
+            <li>Parents, students, and elders still face dangerous, poorly marked intersections every day.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>How Your Support Helps</h2>
+          <p>Your contribution can help:</p>
+          <ul class="list">
+            <li><strong>Fund awareness campaigns</strong> that highlight unsafe intersections and share real stories from residents.</li>
+            <li><strong>Support legal and community advocacy</strong> so neighbors aren’t punished for trying to protect children.</li>
+            <li><strong>Push for permanent, city‑approved crosswalks and sidewalk improvements</strong> in high‑risk areas.</li>
+            <li><strong>Protect children walking to school every day</strong> with safer, more visible crossings.</li>
+          </ul>
+
+          <div class="pill-row">
+            <span class="pill">Every amount counts</span>
+            <span class="pill">Safer streets for kids</span>
+            <span class="pill">Share this with your community</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO GIVE -->
+    <section class="section">
+      <h2>A Call to Action</h2>
+      <p>
+        This movement isn’t about one person — it’s about all of us demanding safer streets, better visibility,
+        slower traffic, and proper pedestrian infrastructure. Whether you give financially or simply help spread
+        the word, you are part of preventing the next tragedy.
+      </p>
+
+      <div class="two-col" style="margin-top: 0.8rem;">
+        <div>
+          <ul class="list">
+            <li>
+              <strong>Donate Today:</strong> Click the
+              <em>“Contribute $19.99”</em> button above to make a secure payment through Intuit and support crosswalk
+              safety, advocacy, and community organizing.
+            </li>
+            <li>
+              <strong>Stay Connected:</strong> Use the form below if you’d like updates, to offer professional support,
+              or to share words of encouragement for Jonathan and the community.
+            </li>
+            <li>
+              <strong>Share the Story:</strong> Post this page, the video, and the photos of these crossings in your
+              group chats, social media, and neighborhood circles.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="highlight-box">
+            <strong>Note:</strong> The payment button above securely processes your contribution through Intuit.
+            The form below is for contact, pledges, or additional support – it does not process payments.
+          </div>
+        </div>
+      </div>
+
+    <!-- CROSSWALK IMAGE GALLERY -->
+    <section class="section">
+      <h2>Scenes From Our Streets</h2>
+      <p>
+        These images show the kinds of intersections families, students, and everyday neighbors navigate daily —
+        and why protected, well-marked crosswalks are essential, not optional.
+      </p>
+      <div class="image-grid">
+        <figure>
+          <img src="crosswalk1.jpg" alt="A parent pushing a stroller near a painted crosswalk at a residential intersection." />
+          <figcaption>Parents, children, and pets sharing the streets near marked crossings that still need better protection.</figcaption>
+        </figure>
+        <figure>
+          <img src="crosswalk2.jpg" alt="Workers in safety vests repainting and upgrading a crosswalk at a busy intersection." />
+          <figcaption>Community and city crews improving visibility at a busy intersection — the kind of change we are fighting for.</figcaption>
+        </figure>
+        <figure>
+          <img src="crosswalk3.jpg" alt="Two pedestrians walking across a freshly painted crosswalk in a neighborhood street." />
+          <figcaption>Freshly painted crosswalks remind drivers to slow down and watch for people, not just cars.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SUPPORT / SUBMISSION FORM -->
+    <section id="support-form" class="section">
+      <h2>Community Safety & Support Form</h2>
+      <p>
+        Complete the form below to pledge a contribution, offer professional services, or share a message of support
+        for Jonathan and for safer crosswalks in Westwood. Your submission will be sent directly to our organizing team.
+      </p>
+
+      <div class="highlight-box" style="margin-top: 0.8rem; margin-bottom: 1rem;">
+        <strong>Interested in contributing more than the standard amount?</strong><br />
+        Please fill out the intake form below and include the <strong>exact contribution amount</strong> you wish to pledge.
+        Once received, our team will send a <strong>secure payment link</strong> directly to your email.
+        Thank you for your generosity and for supporting safer crosswalks in our community.
+      </div>
+
+      <form action="send_support_form.php" method="POST">
+        <div class="form-grid">
+          <div>
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div>
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div>
+            <label for="phone">Phone (Optional)</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+
+          <div>
+            <label for="city">City / Neighborhood</label>
+            <input type="text" id="city" name="city" />
+          </div>
+
+          <div>
+            <label for="support_type">I Would Like To *</label>
+            <select id="support_type" name="support_type" required>
+              <option value="">Select an option</option>
+              <option value="financial">Share that I contributed financially</option>
+              <option value="legal">Offer legal or professional support</option>
+              <option value="organizing">Help with outreach / organizing</option>
+              <option value="message">Send a message of encouragement</option>
+              <option value="other">Other / Not sure yet</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="amount">Estimated Contribution Amount (If Applicable)</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0" placeholder="e.g. 19.99" />
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <label for="message">Message or Additional Details</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Let us know anything we should be aware of (e.g., your availability, professional background, or words of encouragement)."
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">
+            Submit My Information
+          </button>
+          <div class="note-small">
+            Your submission will be sent automatically to our team at <strong>Coreversallc@gmail.com</strong>.
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    Community Safety Spotlight &middot; Grassroots neighbors standing together for protected crosswalks, safer streets, and fair treatment.
+  </footer>
+</body>
+</html>
